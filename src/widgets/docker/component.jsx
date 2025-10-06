@@ -46,12 +46,12 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="docker.cpu" value={t("common.percent", { value: calculateCPUPercent(statsData.stats) })} />
       {statsData.stats.memory_stats.usage && (
-        <Block label="docker.mem" value={t("common.bytes", { value: calculateUsedMemory(statsData.stats) })} />
+        <Block label="docker.mem" value={t("common.bytes", { value: calculateUsedMemory(statsData.stats), binary: true })} />
       )}
       {statsData.stats.networks && (
         <>
-          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes })} />
-          <Block label="docker.tx" value={t("common.bytes", { value: txBytes })} />
+          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes, binary: true })} />
+          <Block label="docker.tx" value={t("common.bytes", { value: txBytes, binary: true })} />
         </>
       )}
     </Container>
